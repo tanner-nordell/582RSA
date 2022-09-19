@@ -11,10 +11,11 @@ def RSAKeygen(bitlen):
 	d = 0
 	p = 0
 	q = 0
+	k = random.SystemRandom().randint(1, bitlen-1)
 	while not is_prime(p):
-		p = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
+		p = random.SystemRandom().randint(pow(2,k-1), pow(2, k)-1)
 	while not is_prime(q):
-		q = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
+		q = random.SystemRandom().randint(pow(2,(bitlen-k)-1), pow(2, bitlen-k)-1)
 	n=p*q
 	phiN = (p-1)(q-1)
 	d = mod_inverse(e, phiN)
