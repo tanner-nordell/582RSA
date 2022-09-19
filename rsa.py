@@ -9,15 +9,18 @@ e = 65537
 def RSAKeygen(bitlen):
 	n = 0
 	d = 0
-	while not is_prime(n):
-		n = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
-	while not is_prime(d):
-		d = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
-
+	p = 0
+	q = 0
+	while not is_prime(p):
+		p = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
+	while not is_prime(q):
+		q = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
+	n=p*q
+	phiN = (p-1)(q-1)
+	d = mod_inverse(e, phiN)
 	return n,d
 
 def RSAEncrypt(n,m):
-	e = 65537
 	c = pow(m,e,n)
 	#Code goes here
 	return c
