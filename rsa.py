@@ -12,7 +12,7 @@ def RSAKeygen(bitlen):
 	while not is_prime(n):
 		n = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
 	while not is_prime(d):
-		d = random.SystemRandom().randint(1, pow(2, bitlen))
+		d = random.SystemRandom().randint(pow(2,bitlen-1), pow(2, bitlen)-1)
 
 	return n,d
 
