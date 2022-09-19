@@ -7,7 +7,7 @@ from rsa_util import is_prime
 e = 65537
 
 def RSAKeygen(bitlen):
-	print("bitlen: ", bitlen)
+
 	n = 0
 	d = 0
 	p = 4
@@ -20,6 +20,7 @@ def RSAKeygen(bitlen):
 		q = random.SystemRandom().randint(pow(2,(bitlen-k)-1), pow(2, bitlen-k)-1)
 	n=p*q
 	binary = bin(n)[2:]
+	print("bitlen: ", bitlen)
 	print("length= " , len(binary))
 	phiN = (p-1)*(q-1)
 	d = mod_inverse(e, phiN)
