@@ -12,13 +12,14 @@ def RSAKeygen(bitlen):
 	d = 0
 	p = 4
 	q = 4
-	k = random.SystemRandom().randint(1, bitlen-1)
+	k = random.SystemRandom().randint(1, bitlen)
 	print("k: ",k)
 	while not is_prime(p):
 		p = random.SystemRandom().randint(pow(2,k-1), pow(2, k)-1)
 	while not is_prime(q):
 		q = random.SystemRandom().randint(pow(2,(bitlen-k)-1), pow(2, bitlen-k)-1)
 	n=p*q
+
 	binary = bin(n)[2:]
 	print("bitlen: ", bitlen)
 	print("length= " , len(binary))
